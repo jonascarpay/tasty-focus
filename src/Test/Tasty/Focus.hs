@@ -1,9 +1,7 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-
 -- | Simple focus mechanism for @tasty@, similar to @hspec@.
 -- Mark the root of your test tree with 'withFocus'.
 -- Then, if any of the subtrees of your test suite are marked with 'focus', only those test trees will be run.
-module Lib
+module Test.Tasty.Focus
   ( withFocus,
     focus,
   )
@@ -31,6 +29,8 @@ anyFocused = getAny . foldTestTree tfold mempty
       Focused -> True
       NotFocused -> False
 
+{-# WARNING focus "Focusing tests... don't forget to re-enable your entire test suite!" #-}
+
 -- | Intended to be used at the root of your test suite.
 --   If any of the subtrees are focused, filter out all non-focused subtrees.
 --   If there are no focused subtrees, return the entire tree.
@@ -51,4 +51,4 @@ focus :: TestTree -> TestTree
 focus tree =
   if anyFocused tree
     then tree
-    else PlusTestOptions (setOption Focused) tree
+    else testGroup "focused" [PlusTestOptions (setOption Focused) tree]

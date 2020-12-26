@@ -1,6 +1,6 @@
-import Lib
-import Test.Tasty
+import Test.Tasty.Focus
 import Test.Tasty.ExpectedFailure
+import Test.Tasty
 import Test.Tasty.HUnit
 
 failure :: TestTree
