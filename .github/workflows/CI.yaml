@@ -17,7 +17,7 @@ jobs:
       - name: Build dependencies
         run: nix build -L '(import ./pkgs.nix).hsPkgs.shellFor {}'
       - name: Build PKGNAME
-        run: nix build -L -f pkgs.nix hsPkgs.PKGNAME.checks
+        run: nix build -L -f pkgs.nix hsPkgs.tasty-focus.checks
       - name: Build development tools
         run: nix build -L -f shell.nix
 
