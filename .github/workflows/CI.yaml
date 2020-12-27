@@ -13,10 +13,13 @@ jobs:
       - uses: cachix/cachix-action@v8
         with:
           name: jmc
-          signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-      - run: nix build -L -f ./pkgs.nix hsPkgs.tasty-focus.checks
-      - name: "build nix-shell"
-        run: nix-shell --run "echo OK"
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+      - name: Build dependencies
+        run: nix build -L '(import ./pkgs.nix).hsPkgs.shellFor {}'
+      - name: Build PKGNAME
+        run: nix build -L -f pkgs.nix hsPkgs.PKGNAME.checks
+      - name: Build development tools
+        run: nix build -L -f shell.nix
 
   stack-build:
     name: Stack ${{ matrix.resolver }} on ${{ matrix.os }} (${{ matrix.required }})
