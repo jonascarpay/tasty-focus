@@ -1,4 +1,4 @@
-## tasty-focus ![Hackage](https://img.shields.io/hackage/v/tasty-focus)
+## tasty-focus [![Hackage](https://img.shields.io/hackage/v/tasty-focus)](http://hackage.haskell.org/package/tasty-focus)
 
 Simple focus mechanism for `tasty`, similar to `hspec`.
 
