@@ -6,6 +6,7 @@ build-type:      Simple
 license-file:    LICENSE
 author:          Jonas Carpay
 maintainer:      Jonas Carpay <jonascarpay@gmail.com>
+category:        Testing
 copyright:       2020 Jonas Carpay
 tested-with:     GHC ==8.10.2
 synopsis:        Simple focus mechanism for tasty
