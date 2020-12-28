@@ -48,7 +48,7 @@ jobs:
             .stack-work
           key: stack-cache-${{ matrix.os }}-${{ matrix.resolver }}-${{ hashFiles('**/*.cabal') }}
       - run: stack build --only-dependencies
-      - run: stack build
+      - run: stack build --haddock --test --bench --no-run-benchmarks
       - run: stack test
 
   cabal-build:
