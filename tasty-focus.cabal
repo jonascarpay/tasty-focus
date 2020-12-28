@@ -10,10 +10,15 @@ category:        Testing
 copyright:       2020 Jonas Carpay
 tested-with:     GHC ==8.10.2
 synopsis:        Simple focus mechanism for tasty
+homepage:        https://github.com/jonascarpay/tasty-focus#readme
 description:     Simple focus mechanism for tasty, similar to hspec.
 extra-doc-files:
   CHANGELOG.md
   README.md
+
+source-repository head
+  type:     git
+  location: git://github.com/jonascarpay/tasty-focus
 
 common common-options
   build-depends:    base >=4.9 && <5
